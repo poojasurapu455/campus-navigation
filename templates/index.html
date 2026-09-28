@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Smart Campus Navigation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">📍 CampusNav</div>
+
+        <div class="nav-links">
+            <span>Smart Campus Navigation</span>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="badge">
+                🎓 BUILT FOR FRESHERS
+            </div>
+
+            <h1>
+                Find Your Way<br>
+                <span>Across Campus.</span>
+            </h1>
+
+            <p>
+                Find classrooms, laboratories, departments and
+                campus facilities with smart route guidance.
+            </p>
+
+            <div class="buttons">
+
+                <button class="primary-btn"
+                        onclick="location.href='/login'">
+                    🚀 Start Navigation
+                </button>
+
+                <button class="secondary-btn"
+                        onclick="location.href='/map'">
+                    🗺️ Explore Campus
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="campus-preview">
+
+            <div class="map-title">
+                🗺️ Campus Map
+            </div>
+
+            <div class="campus-map">
+
+                <div class="building cse">
+                    🏢
+                    <span>CSE Block</span>
+                </div>
+
+                <div class="building library">
+                    📚
+                    <span>Library</span>
+                </div>
+
+                <div class="building canteen">
+                    🍴
+                    <span>Canteen</span>
+                </div>
+
+                <div class="building medical">
+                    🏥
+                    <span>Medical</span>
+                </div>
+
+                <div class="building gate">
+                    🚪
+                    <span>Main Gate</span>
+                </div>
+
+                <div class="route"></div>
+
+                <div class="location-pin">📍</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="features">
+
+        <h2>Everything a Fresher Needs</h2>
+
+        <p class="subtitle">
+            One platform to explore and navigate your campus.
+        </p>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>Smart Search</h3>
+                <p>
+                    Quickly find classrooms, labs,
+                    departments and facilities.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🧭</div>
+                <h3>Shortest Route</h3>
+                <p>
+                    Get the shortest path from your
+                    location to your destination.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🏢</div>
+                <h3>Campus Information</h3>
+                <p>
+                    Explore buildings, departments,
+                    rooms and facilities.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🚨</div>
+                <h3>Emergency Help</h3>
+                <p>
+                    Quickly locate medical rooms,
+                    security and emergency services.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <b>📍 CampusNav</b>
+        <span>Smart Campus Navigation System for Freshers</span>
+    </footer>
+
+</body>
+
+</html>

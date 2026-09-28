@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Map - CampusNav</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fa;
+            color: #1f2937;
+        }
+
+        /* Main Container */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 8px;
+            color: #172033;
+        }
+
+        .header p {
+            font-size: 17px;
+            color: #667085;
+        }
+
+        /* Map Box */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 560px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Roads */
+        .road-horizontal {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            top: 52%;
+            height: 60px;
+            background: #eef1f3;
+            border-radius: 35px;
+        }
+
+        .road-vertical {
+            position: absolute;
+            top: 10%;
+            bottom: 10%;
+            left: 50%;
+            width: 60px;
+            background: #eef1f3;
+            border-radius: 35px;
+            transform: translateX(-50%);
+        }
+
+        /* Road center lines */
+        .road-horizontal::after {
+            content: "";
+            position: absolute;
+            top: 29px;
+            left: 0;
+            right: 0;
+            border-top: 2px dashed #d2d7dc;
+        }
+
+        .road-vertical::after {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 0;
+            bottom: 0;
+            border-left: 2px dashed #d2d7dc;
+        }
+
+        /* SVG Route */
+        #routeSvg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .route {
+            fill: none;
+            stroke: #009edb;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 14 10;
+            opacity: 0;
+        }
+
+        .route.active {
+            opacity: 1;
+            animation: routeMove 1s linear infinite;
+        }
+
+        @keyframes routeMove {
+            to {
+                stroke-dashoffset: -48;
+            }
+        }
+
+        /* Location Cards */
+        .location {
+            position: absolute;
+            width: 150px;
+            min-height: 105px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            z-index: 5;
+            transition: 0.25s;
+            border: 2px solid transparent;
+        }
+
+        .location:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+        }
+
+        .location.active {
+            border-color: #009edb;
+        }
+
+        .icon {
+            font-size: 28px;
+        }
+
+        .location span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #273142;
+        }
+
+        /* Positions */
+
+        #cse {
+            top: 11%;
+            left: 9%;
+        }
+
+        #library {
+            top: 11%;
+            right: 9%;
+        }
+
+        #gate {
+            bottom: 10%;
+            left: 9%;
+        }
+
+        #canteen {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #medical {
+            bottom: 10%;
+            right: 9%;
+        }
+
+        #canteen:hover {
+            transform: translateX(-50%) translateY(-4px);
+        }
+
+        /* Controls */
+        .controls {
+            margin-top: 25px;
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .controls h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            width: 300px;
+            padding: 13px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+            outline: none;
+        }
+
+        select:focus {
+            border-color: #009edb;
+        }
+
+        button {
+            padding: 13px 24px;
+            border: none;
+            border-radius: 10px;
+            background: #009edb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #007eaf;
+            transform: translateY(-1px);
+        }
+
+        /* Result */
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #ecfdf3;
+            border-left: 5px solid #16a34a;
+        }
+
+        #result h3 {
+            color: #15803d;
+            margin-bottom: 7px;
+        }
+
+        #result p {
+            color: #344054;
+            margin-top: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .map-container {
+                height: 500px;
+            }
+
+            .location {
+                width: 115px;
+                min-height: 85px;
+            }
+
+            .location span {
+                font-size: 13px;
+            }
+
+            .icon {
+                font-size: 22px;
+            }
+
+            #cse {
+                left: 4%;
+            }
+
+            #library {
+                right: 4%;
+            }
+
+            #gate {
+                left: 4%;
+            }
+
+            #medical {
+                right: 4%;
+            }
+
+            select {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .control-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+
+        <h1>🗺️ Campus Map</h1>
+
+        <p>
+            Select a destination to navigate across the campus.
+        </p>
+
+    </div>
+
+
+    <!-- Campus Map -->
+    <div class="map-container">
+
+        <!-- Roads -->
+        <div class="road-horizontal"></div>
+
+        <div class="road-vertical"></div>
+
+
+        <!-- Route SVG -->
+        <svg id="routeSvg"
+             viewBox="0 0 1000 560"
+             preserveAspectRatio="none">
+
+
+            <!-- Main Gate → Canteen -->
+            <path
+                id="routeCanteen"
+                class="route"
+                d="
+                    M 165 452
+                    L 500 452
+                " />
+
+
+            <!-- Main Gate → CSE Lab -->
+
+            <path
+                id="routeGateCanteen"
+                class="route"
+                d="
+                    M 165 452
+                    L 500 452
+                    L 500 321
+                    L 165 321
+                    L 165 114
+                " />
+
+
+            <!-- Main Gate → Library -->
+
+            <path
+                id="routeLibrary"
+                class="route"
+                d="
+                    M 165 452
+                    L 500 452
+                    L 500 321
+                    L 835 321
+                    L 835 114
+                " />
+
+
+            <!-- Main Gate → Medical Room -->
+
+            <path
+                id="routeMedical"
+                class="route"
+                d="
+                    M 165 452
+                    L 835 452
+                " />
+
+
+        </svg>
+
+
+        <!-- CSE Lab -->
+        <div class="location" id="cse">
+
+            <div class="icon">💻</div>
+
+            <span>CSE Lab</span>
+
+        </div>
+
+
+        <!-- Library -->
+        <div class="location" id="library">
+
+            <div class="icon">📚</div>
+
+            <span>Library</span>
+
+        </div>
+
+
+        <!-- Main Gate -->
+        <div class="location" id="gate">
+
+            <div class="icon">🚪</div>
+
+            <span>Main Gate</span>
+
+        </div>
+
+
+        <!-- Canteen -->
+        <div class="location" id="canteen">
+
+            <div class="icon">🍴</div>
+
+            <span>Canteen</span>
+
+        </div>
+
+
+        <!-- Medical Room -->
+        <div class="location" id="medical">
+
+            <div class="icon">🏥</div>
+
+            <span>Medical Room</span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Controls -->
+    <div class="controls">
+
+        <h2>📍 Select Destination</h2>
+
+
+        <div class="control-row">
+
+
+            <select id="destination">
+
+                <option value="">
+                    -- Choose a place --
+                </option>
+
+                <option value="cse">
+                    CSE Lab
+                </option>
+
+                <option value="library">
+                    Library
+                </option>
+
+                <option value="canteen">
+                    Canteen
+                </option>
+
+                <option value="medical">
+                    Medical Room
+                </option>
+
+            </select>
+
+
+            <button onclick="startNavigation()">
+                📍 Start Navigation
+            </button>
+
+
+        </div>
+
+
+        <!-- Result -->
+        <div id="result">
+
+            <h3>✅ Route Found!</h3>
+
+            <p id="destinationText"></p>
+
+            <p>
+                🧭 Shortest route calculated.
+            </p>
+
+            <p>
+                🚶 Follow the highlighted path on the campus map.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+    /* Clear previous routes */
+
+    function clearRoutes() {
+
+        document
+            .querySelectorAll(".route")
+            .forEach(function(route) {
+
+                route.classList.remove("active");
+
+            });
+
+
+        document
+            .querySelectorAll(".location")
+            .forEach(function(location) {
+
+                location.classList.remove("active");
+
+            });
+
+    }
+
+
+    /* Start Navigation */
+
+    function startNavigation() {
+
+        const destination =
+            document.getElementById("destination").value;
+
+
+        const result =
+            document.getElementById("result");
+
+
+        const destinationText =
+            document.getElementById("destinationText");
+
+
+        /* Clear old route */
+
+        clearRoutes();
+
+
+        /* No destination selected */
+
+        if (destination === "") {
+
+            result.style.display = "none";
+
+            alert("Please select a destination.");
+
+            return;
+        }
+
+
+        /*
+            Main Gate is the starting point.
+            Route will be shown according
+            to the selected destination.
+        */
+
+
+        /* CSE Lab */
+
+        if (destination === "cse") {
+
+            document
+                .getElementById("routeGateCanteen")
+                .classList.add("active");
+
+
+            document
+                .getElementById("cse")
+                .classList.add("active");
+
+
+            destinationText.innerHTML =
+                "Destination: <strong>CSE Lab</strong>";
+
+        }
+
+
+        /* Library */
+
+        else if (destination === "library") {
+
+            document
+                .getElementById("routeLibrary")
+                .classList.add("active");
+
+
+            document
+                .getElementById("library")
+                .classList.add("active");
+
+
+            destinationText.innerHTML =
+                "Destination: <strong>Library</strong>";
+
+        }
+
+
+        /* Canteen */
+
+        else if (destination === "canteen") {
+
+            document
+                .getElementById("routeCanteen")
+                .classList.add("active");
+
+
+            document
+                .getElementById("canteen")
+                .classList.add("active");
+
+
+            destinationText.innerHTML =
+                "Destination: <strong>Canteen</strong>";
+
+        }
+
+
+        /* Medical Room */
+
+        else if (destination === "medical") {
+
+            document
+                .getElementById("routeMedical")
+                .classList.add("active");
+
+
+            document
+                .getElementById("medical")
+                .classList.add("active");
+
+
+            destinationText.innerHTML =
+                "Destination: <strong>Medical Room</strong>";
+
+        }
+
+
+        /* Show result */
+
+        result.style.display = "block";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

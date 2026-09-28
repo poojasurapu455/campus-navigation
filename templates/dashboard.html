@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📍 CampusNav
+        </div>
+
+        <div class="user-info">
+            👤 Fresher
+        </div>
+
+    </nav>
+
+
+    <!-- DASHBOARD -->
+
+    <main class="dashboard">
+
+        <div class="welcome">
+
+            <span class="badge">
+                🎓 CAMPUS NAVIGATION
+            </span>
+
+            <h1>
+                Where do you want to go?
+            </h1>
+
+            <p>
+                Find your classroom, department,
+                facility or any place on campus.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Search CSE Lab, Library, Canteen..."
+            >
+
+            <button onclick="searchPlace()">
+                Search
+            </button>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card"
+                 onclick="location.href='/map'">
+
+                <div class="dashboard-icon">
+                    🗺️
+                </div>
+
+                <h3>View Campus Map</h3>
+
+                <p>
+                    Explore the complete campus
+                    with building markers.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card"
+                 onclick="location.href='/departments'">
+
+                <div class="dashboard-icon">
+                    🏢
+                </div>
+
+                <h3>Departments</h3>
+
+                <p>
+                    Find departments, labs,
+                    classrooms and faculty rooms.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card"
+                 onclick="location.href='/facilities'">
+
+                <div class="dashboard-icon">
+                    🏫
+                </div>
+
+                <h3>Facilities</h3>
+
+                <p>
+                    Library, canteen, washrooms,
+                    auditorium and sports ground.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card"
+                 onclick="location.href='/emergency'">
+
+                <div class="dashboard-icon">
+                    🚨
+                </div>
+
+                <h3>Emergency Help</h3>
+
+                <p>
+                    Medical room, security office
+                    and important contacts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK DESTINATIONS -->
+
+        <section class="quick-section">
+
+            <h2>Popular Destinations</h2>
+
+            <div class="quick-grid">
+
+                <button onclick="selectPlace('CSE Lab')">
+                    💻 CSE Lab
+                </button>
+
+                <button onclick="selectPlace('Library')">
+                    📚 Library
+                </button>
+
+                <button onclick="selectPlace('Canteen')">
+                    🍴 Canteen
+                </button>
+
+                <button onclick="selectPlace('Medical Room')">
+                    🏥 Medical Room
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function searchPlace() {
+
+            let place =
+                document.getElementById("destination").value;
+
+            if (place.trim() === "") {
+
+                alert("Please enter a destination.");
+
+                return;
+            }
+
+            alert(
+                "Searching route to: " + place
+            );
+        }
+
+
+        function selectPlace(place) {
+
+            document.getElementById(
+                "destination"
+            ).value = place;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

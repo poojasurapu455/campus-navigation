@@ -1,0 +1,803 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f8ff;
+    color: #172554;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7%;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #173b75;
+}
+
+.nav-links {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    padding: 70px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+        120deg,
+        #eaf5ff,
+        #f5efff
+    );
+}
+
+.hero-text {
+    max-width: 560px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+
+    background: #dbeafe;
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 54px;
+    line-height: 1.08;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #5367d8;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #64748b;
+
+    max-width: 520px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-btn {
+    border: none;
+    background: #5367d8;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #4357c8;
+}
+
+.secondary-btn {
+    border: 1px solid #5367d8;
+    background: white;
+    color: #5367d8;
+}
+
+
+/* MAP PREVIEW */
+
+.campus-preview {
+    width: 430px;
+    background: white;
+    padding: 18px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 50px rgba(30, 50, 100, 0.15);
+}
+
+.map-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.campus-map {
+    height: 330px;
+    position: relative;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49%,
+            #dbe4ee 50%,
+            transparent 51%
+        ),
+        linear-gradient(
+            transparent 49%,
+            #dbe4ee 50%,
+            transparent 51%
+        );
+
+    background-size: 80px 80px;
+
+    background-color: #eef7ed;
+    overflow: hidden;
+}
+
+
+/* BUILDINGS */
+
+.building {
+    position: absolute;
+
+    padding: 10px;
+
+    background: white;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+
+    text-align: center;
+
+    font-size: 22px;
+}
+
+.building span {
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.cse {
+    left: 35px;
+    top: 35px;
+}
+
+.library {
+    right: 35px;
+    top: 50px;
+}
+
+.canteen {
+    left: 150px;
+    bottom: 30px;
+}
+
+.medical {
+    right: 35px;
+    bottom: 30px;
+}
+
+.gate {
+    left: 25px;
+    bottom: 35px;
+}
+
+
+/* ROUTE */
+
+.route {
+    position: absolute;
+
+    width: 230px;
+    height: 5px;
+
+    background: #5367d8;
+
+    transform: rotate(25deg);
+
+    left: 100px;
+    top: 145px;
+
+    border-radius: 10px;
+}
+
+.location-pin {
+    position: absolute;
+
+    font-size: 28px;
+
+    left: 190px;
+    top: 130px;
+}
+
+
+/* FEATURES */
+
+.features {
+    padding: 65px 7%;
+    text-align: center;
+    background: white;
+}
+
+.features h2 {
+    font-size: 32px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #64748b;
+}
+
+.feature-grid {
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 28px 20px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.08);
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 25px 7%;
+
+    background: #172554;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+footer span {
+    color: #cbd5e1;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .campus-preview {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* LOGIN PAGE */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #eaf5ff,
+        #f5efff
+    );
+}
+
+
+.login-card {
+    width: 420px;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(30, 50, 100, 0.15);
+}
+
+
+.login-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e8efff;
+
+    font-size: 35px;
+}
+
+
+.login-card h1 {
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+
+.login-card > p {
+    color: #64748b;
+
+    margin-bottom: 30px;
+}
+
+
+.login-button {
+    width: 100%;
+
+    margin-bottom: 14px;
+}
+
+
+.login-note {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: #f5f7fb;
+
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.back-link {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #5367d8;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+/* DASHBOARD */
+
+.dashboard {
+    min-height: calc(100vh - 70px);
+    padding: 55px 7%;
+    background: #f6f9ff;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    margin: 15px 0 8px;
+}
+
+.welcome p {
+    color: #64748b;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    max-width: 700px;
+    margin: auto;
+
+    background: white;
+
+    padding: 8px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+}
+
+.search-box span {
+    padding: 0 12px;
+    font-size: 20px;
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    font-size: 15px;
+
+    padding: 14px;
+}
+
+.search-box button {
+    border: none;
+
+    background: #5367d8;
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* DASHBOARD CARDS */
+
+.dashboard-grid {
+    max-width: 1000px;
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.dashboard-card {
+    background: white;
+
+    padding: 25px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.08);
+}
+
+.dashboard-icon {
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 8px;
+}
+
+.dashboard-card p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* QUICK DESTINATIONS */
+
+.quick-section {
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.quick-section h2 {
+    margin-bottom: 18px;
+}
+
+.quick-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.quick-grid button {
+    border: 1px solid #dbe3f0;
+
+    background: white;
+
+    padding: 13px 18px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.quick-grid button:hover {
+    border-color: #5367d8;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome h1 {
+        font-size: 30px;
+    }
+
+    .search-box button {
+        padding: 12px;
+    }
+}
+/* =========================
+   CAMPUS MAP PAGE
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f8fc;
+    color: #172554;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.navbar h2 {
+    margin: 0;
+    color: #0f4c81;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #0f4c81;
+    font-weight: bold;
+}
+
+.map-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.map-container h1 {
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.map-container > p {
+    color: #64748b;
+    font-size: 18px;
+}
+
+/* CAMPUS MAP */
+
+.campus-map {
+    position: relative;
+    height: 480px;
+    margin-top: 30px;
+    border-radius: 25px;
+    background: #e8f1f8;
+    border: 3px solid #cbd5e1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* LOCATION BUTTONS */
+
+.location {
+    position: absolute;
+    padding: 18px 22px;
+    border: none;
+    border-radius: 14px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-weight: bold;
+    color: #172554;
+    transition: 0.2s;
+}
+
+.location:hover {
+    transform: scale(1.08);
+    background: #dbeafe;
+}
+
+/* MAP POSITIONS */
+
+.cse {
+    top: 60px;
+    left: 100px;
+}
+
+.library {
+    top: 70px;
+    right: 120px;
+}
+
+.canteen {
+    bottom: 80px;
+    left: 300px;
+}
+
+.medical {
+    bottom: 70px;
+    right: 100px;
+}
+
+.gate {
+    bottom: 70px;
+    left: 70px;
+}
+
+/* DESTINATION */
+
+.destination-box {
+    margin-top: 30px;
+    padding: 25px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.destination-box h2 {
+    margin-top: 0;
+}
+
+.destination-box select {
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    min-width: 230px;
+}
+
+.destination-box button {
+    padding: 13px 22px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #0f82d0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.destination-box button:hover {
+    background: #075985;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #eff6ff;
+}

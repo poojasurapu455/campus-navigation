@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-card">
+
+            <div class="login-icon">
+                📍
+            </div>
+
+            <h1>Welcome to CampusNav</h1>
+
+            <p>
+                Choose how you want to continue
+            </p>
+
+
+            <button
+                class="primary-btn login-button"
+                onclick="location.href='/dashboard'">
+
+                🎓 Continue as Student
+
+            </button>
+
+
+            <button
+                class="secondary-btn login-button"
+                onclick="location.href='/dashboard'">
+
+                👤 Continue as Guest
+
+            </button>
+
+
+            <div class="login-note">
+
+                Guest mode lets you explore campus
+                without creating an account.
+
+            </div>
+
+
+            <a href="/" class="back-link">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
