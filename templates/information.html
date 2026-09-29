@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Information | CampusNav</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #1f2937;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px 25px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .header p {
+            font-size: 17px;
+            color: #6b7280;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto 50px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .info-card {
+            text-decoration: none;
+            color: inherit;
+            background: white;
+            min-height: 210px;
+            padding: 30px 25px;
+            border-radius: 18px;
+            border: 1px solid #e5e7eb;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease,
+                        border-color 0.25s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-color: #2563eb;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .info-card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #6b7280;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .back a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Campus Information</h1>
+        <p>Explore departments, facilities and important locations available on the campus.</p>
+    </div>
+
+
+    <div class="container">
+
+        <div class="info-grid">
+
+            <!-- CSE -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='CSE Department') }}">
+
+                <div class="icon">💻</div>
+
+                <h2>CSE Department</h2>
+
+                <p>
+                    Computer Science and Engineering Department
+                    with classrooms and computer laboratories.
+                </p>
+
+            </a>
+
+
+            <!-- ECE -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='ECE Department') }}">
+
+                <div class="icon">🔌</div>
+
+                <h2>ECE Department</h2>
+
+                <p>
+                    Electronics and Communication Engineering
+                    Department.
+                </p>
+
+            </a>
+
+
+            <!-- Mechanical -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Mechanical Department') }}">
+
+                <div class="icon">⚙️</div>
+
+                <h2>Mechanical Department</h2>
+
+                <p>
+                    Mechanical Engineering Department with
+                    classrooms and laboratories.
+                </p>
+
+            </a>
+
+
+            <!-- Civil -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Civil Department') }}">
+
+                <div class="icon">🏛️</div>
+
+                <h2>Civil Department</h2>
+
+                <p>
+                    Civil Engineering Department with classrooms
+                    and academic facilities.
+                </p>
+
+            </a>
+
+
+            <!-- Library -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Library') }}">
+
+                <div class="icon">📚</div>
+
+                <h2>Library</h2>
+
+                <p>
+                    Study area containing books and learning
+                    resources for students.
+                </p>
+
+            </a>
+
+
+            <!-- Canteen -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Canteen') }}">
+
+                <div class="icon">🍴</div>
+
+                <h2>Canteen</h2>
+
+                <p>
+                    Food area available for students and
+                    campus staff.
+                </p>
+
+            </a>
+
+
+            <!-- Washrooms -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Washrooms') }}">
+
+                <div class="icon">🚻</div>
+
+                <h2>Washrooms</h2>
+
+                <p>
+                    Campus washroom facilities located near
+                    the main campus areas.
+                </p>
+
+            </a>
+
+
+            <!-- Medical Room -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Medical Room') }}">
+
+                <div class="icon">🏥</div>
+
+                <h2>Medical Room</h2>
+
+                <p>
+                    First-aid and basic medical assistance
+                    facility for students.
+                </p>
+
+            </a>
+
+
+            <!-- Security -->
+            <a class="info-card"
+               href="{{ url_for('location_details', place='Security') }}">
+
+                <div class="icon">🛡️</div>
+
+                <h2>Security</h2>
+
+                <p>
+                    Security office responsible for campus
+                    safety and assistance.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div class="back">
+            <a href="/dashboard">← Back to Dashboard</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

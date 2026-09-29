@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Facilities</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">📍 CampusNav</div>
+
+    <div class="user-info">👤 Fresher</div>
+</nav>
+
+<main class="result-page">
+
+    <section class="result-heading">
+        <span class="search-badge">🏫 CAMPUS FACILITIES</span>
+
+        <h1>Facilities</h1>
+
+        <p>Quickly find important facilities around the campus.</p>
+    </section>
+
+    <section class="result-options">
+
+        <div class="result-option">
+            <div class="option-icon">📚</div>
+            <h3>Library</h3>
+            <p>Find the campus library and study area.</p>
+
+            <a href="/search?place=Library"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">🍴</div>
+            <h3>Canteen</h3>
+            <p>Locate the campus canteen and food area.</p>
+
+            <a href="/search?place=Canteen"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">🏥</div>
+            <h3>Medical Room</h3>
+            <p>Find the medical room for basic medical assistance.</p>
+
+            <a href="/search?place=Medical Room"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">🚻</div>
+            <h3>Washrooms</h3>
+            <p>Find nearby washroom facilities on campus.</p>
+
+            <a href="/search?place=Washroom"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+    </section>
+
+    <div class="back-section">
+        <a href="/dashboard" class="back-dashboard">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+</main>
+
+</body>
+</html>

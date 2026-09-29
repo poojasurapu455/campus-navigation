@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Location Details</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📍 CampusNav
+        </div>
+
+        <div class="user-info">
+            👤 Fresher
+        </div>
+
+    </nav>
+
+
+    <!-- LOCATION DETAILS PAGE -->
+
+    <main class="location-details-page">
+
+        <section class="location-details-card">
+
+
+            <!-- ICON -->
+
+            <div class="details-icon">
+                📍
+            </div>
+
+
+            <!-- BADGE -->
+
+            <span class="details-badge">
+                CAMPUS LOCATION
+            </span>
+
+
+            <!-- LOCATION NAME -->
+
+            <h1>
+                {{ place }}
+            </h1>
+
+
+            <p class="details-description">
+                Details about your selected campus location.
+            </p>
+
+
+            <!-- DETAILS -->
+
+            <div class="details-grid">
+
+
+                <!-- BUILDING -->
+
+                <div class="detail-box">
+
+                    <span>🏢</span>
+
+                    <h3>
+                        Building
+                    </h3>
+
+                    <p>
+                        Main Campus Building
+                    </p>
+
+                </div>
+
+
+                <!-- FLOOR -->
+
+                <div class="detail-box">
+
+                    <span>📚</span>
+
+                    <h3>
+                        Floor
+                    </h3>
+
+                    <p>
+                        Ground Floor
+                    </p>
+
+                </div>
+
+
+                <!-- ROOM -->
+
+                <div class="detail-box">
+
+                    <span>🚪</span>
+
+                    <h3>
+                        Room
+                    </h3>
+
+                    <p>
+                        {{ place }}
+                    </p>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="detail-box">
+
+                    <span>📍</span>
+
+                    <h3>
+                        Location
+                    </h3>
+
+                    <p>
+                        Campus Area
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="details-buttons">
+
+
+                <!-- START NAVIGATION -->
+
+                <a href="{{ url_for('navigation', place=place) }}"
+                   class="primary-btn">
+
+                    🚶 Start Navigation
+
+                </a>
+
+
+                <!-- CAMPUS MAP -->
+
+                <a href="{{ url_for('campus_map') }}"
+                   class="secondary-btn">
+
+                    🗺️ View Campus Map
+
+                </a>
+
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <a href="{{ url_for('search', place=place) }}"
+               class="details-back">
+
+                ← Back to Search Result
+
+            </a>
+
+
+        </section>
+
+    </main>
+
+
+</body>
+
+</html>

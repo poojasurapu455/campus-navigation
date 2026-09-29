@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Search Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            📍 CampusNav
+        </div>
+
+        <div class="user-info">
+            👤 Fresher
+        </div>
+
+    </nav>
+
+
+    <!-- SEARCH RESULT PAGE -->
+
+    <main class="result-page">
+
+
+        <!-- HEADING -->
+
+        <section class="result-heading">
+
+            <span class="badge">
+                📍 CAMPUS NAVIGATION
+            </span>
+
+            <h1>
+                Search Result
+            </h1>
+
+            <p>
+                Finding the location of your destination.
+            </p>
+
+        </section>
+
+
+        <!-- DESTINATION CARD -->
+
+        <section class="destination-card">
+
+            <div class="location-icon">
+                📍
+            </div>
+
+            <h2>
+                {{ place }}
+            </h2>
+
+            <p>
+                Destination selected successfully.
+            </p>
+
+            <a href="{{ url_for('campus_map') }}"
+               class="primary-btn">
+
+                🗺️ View on Campus Map
+
+            </a>
+
+        </section>
+
+
+        <!-- OPTIONS -->
+
+        <section class="result-options">
+
+
+            <!-- START NAVIGATION -->
+
+            <div class="result-option">
+
+                <div class="option-icon">
+                    🚶
+                </div>
+
+                <h3>
+                    Start Navigation
+                </h3>
+
+                <p>
+                    Get step-by-step directions
+                    to {{ place }}.
+                </p>
+
+                <a href="{{ url_for('navigation', place=place) }}"
+                   class="primary-btn">
+
+                    🚶 Start Navigation
+
+                </a>
+
+            </div>
+
+
+            <!-- LOCATION DETAILS -->
+
+            <div class="result-option">
+
+                <div class="option-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Location Details
+                </h3>
+
+                <p>
+                    View building, floor and
+                    room information.
+                </p>
+
+                <a href="{{ url_for('location_details', place=place) }}"
+                   class="secondary-btn">
+
+                    View Details
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- BACK BUTTON -->
+
+        <a href="{{ url_for('dashboard') }}"
+           class="back-dashboard">
+
+            ← Back to Dashboard
+
+        </a>
+
+
+    </main>
+
+</body>
+
+</html>

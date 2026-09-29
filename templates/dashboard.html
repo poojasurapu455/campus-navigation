@@ -2,14 +2,19 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>CampusNav | Dashboard</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
+
 
 <body>
 
@@ -31,6 +36,9 @@
     <!-- DASHBOARD -->
 
     <main class="dashboard">
+
+
+        <!-- WELCOME -->
 
         <div class="welcome">
 
@@ -54,7 +62,9 @@
 
         <div class="search-box">
 
-            <span>🔍</span>
+            <span>
+                🔍
+            </span>
 
             <input
                 type="text"
@@ -73,6 +83,9 @@
 
         <div class="dashboard-grid">
 
+
+            <!-- CAMPUS MAP -->
+
             <div class="dashboard-card"
                  onclick="location.href='/map'">
 
@@ -80,7 +93,9 @@
                     🗺️
                 </div>
 
-                <h3>View Campus Map</h3>
+                <h3>
+                    View Campus Map
+                </h3>
 
                 <p>
                     Explore the complete campus
@@ -90,6 +105,8 @@
             </div>
 
 
+            <!-- DEPARTMENTS -->
+
             <div class="dashboard-card"
                  onclick="location.href='/departments'">
 
@@ -97,7 +114,9 @@
                     🏢
                 </div>
 
-                <h3>Departments</h3>
+                <h3>
+                    Departments
+                </h3>
 
                 <p>
                     Find departments, labs,
@@ -107,6 +126,8 @@
             </div>
 
 
+            <!-- FACILITIES -->
+
             <div class="dashboard-card"
                  onclick="location.href='/facilities'">
 
@@ -114,7 +135,9 @@
                     🏫
                 </div>
 
-                <h3>Facilities</h3>
+                <h3>
+                    Facilities
+                </h3>
 
                 <p>
                     Library, canteen, washrooms,
@@ -124,6 +147,8 @@
             </div>
 
 
+            <!-- EMERGENCY -->
+
             <div class="dashboard-card"
                  onclick="location.href='/emergency'">
 
@@ -131,7 +156,9 @@
                     🚨
                 </div>
 
-                <h3>Emergency Help</h3>
+                <h3>
+                    Emergency Help
+                </h3>
 
                 <p>
                     Medical room, security office
@@ -140,58 +167,88 @@
 
             </div>
 
+
         </div>
 
 
-        <!-- QUICK DESTINATIONS -->
+        <!-- POPULAR DESTINATIONS -->
 
         <section class="quick-section">
 
-            <h2>Popular Destinations</h2>
+            <h2>
+                Popular Destinations
+            </h2>
+
 
             <div class="quick-grid">
 
-                <button onclick="selectPlace('CSE Lab')">
+
+                <button
+                    onclick="selectPlace('CSE Lab')">
+
                     💻 CSE Lab
+
                 </button>
 
-                <button onclick="selectPlace('Library')">
+
+                <button
+                    onclick="selectPlace('Library')">
+
                     📚 Library
+
                 </button>
 
-                <button onclick="selectPlace('Canteen')">
+
+                <button
+                    onclick="selectPlace('Canteen')">
+
                     🍴 Canteen
+
                 </button>
 
-                <button onclick="selectPlace('Medical Room')">
+
+                <button
+                    onclick="selectPlace('Medical Room')">
+
                     🏥 Medical Room
+
                 </button>
+
 
             </div>
 
         </section>
 
+
     </main>
 
 
+    <!-- JAVASCRIPT -->
+
     <script>
+
 
         function searchPlace() {
 
             let place =
                 document.getElementById("destination").value;
 
+
             if (place.trim() === "") {
 
                 alert("Please enter a destination.");
 
                 return;
+
             }
 
-            alert(
-                "Searching route to: " + place
-            );
+
+            window.location.href =
+                "/search?place=" +
+                encodeURIComponent(place);
+
         }
+
 
 
         function selectPlace(place) {
@@ -200,9 +257,18 @@
                 "destination"
             ).value = place;
 
+
+            // Automatically open search result
+
+            window.location.href =
+                "/search?place=" +
+                encodeURIComponent(place);
+
         }
 
+
     </script>
+
 
 </body>
 

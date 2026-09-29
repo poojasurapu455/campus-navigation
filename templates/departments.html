@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Departments</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">📍 CampusNav</div>
+
+    <div class="user-info">👤 Fresher</div>
+</nav>
+
+<main class="result-page">
+
+    <section class="result-heading">
+        <span class="search-badge">🏢 CAMPUS DEPARTMENTS</span>
+
+        <h1>Departments</h1>
+
+        <p>Find departments, labs and classrooms on campus.</p>
+    </section>
+
+    <section class="result-options">
+
+        <div class="result-option">
+            <div class="option-icon">💻</div>
+            <h3>CSE Department</h3>
+            <p>Computer Science and Engineering department and laboratories.</p>
+
+            <a href="/search?place=CSE Lab"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">⚡</div>
+            <h3>ECE Department</h3>
+            <p>Electronics and Communication Engineering department.</p>
+
+            <a href="/search?place=ECE Lab"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">⚙️</div>
+            <h3>Mechanical Department</h3>
+            <p>Mechanical Engineering department and laboratories.</p>
+
+            <a href="/search?place=Mechanical Lab"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+        <div class="result-option">
+            <div class="option-icon">🏗️</div>
+            <h3>Civil Department</h3>
+            <p>Civil Engineering department and classrooms.</p>
+
+            <a href="/search?place=Civil Department"
+               class="primary-btn">
+                📍 Find Location
+            </a>
+        </div>
+
+    </section>
+
+    <div class="back-section">
+        <a href="/dashboard" class="back-dashboard">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+</main>
+
+</body>
+</html>

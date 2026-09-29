@@ -13,14 +13,22 @@
 
 <body>
 
+    <!-- ================= NAVBAR ================= -->
+
     <nav class="navbar">
-        <div class="logo">📍 CampusNav</div>
+
+        <div class="logo">
+            📍 CampusNav
+        </div>
 
         <div class="nav-links">
             <span>Smart Campus Navigation</span>
         </div>
+
     </nav>
 
+
+    <!-- ================= HERO SECTION ================= -->
 
     <section class="hero">
 
@@ -57,6 +65,8 @@
         </div>
 
 
+        <!-- ================= CAMPUS PREVIEW ================= -->
+
         <div class="campus-preview">
 
             <div class="map-title">
@@ -92,7 +102,9 @@
 
                 <div class="route"></div>
 
-                <div class="location-pin">📍</div>
+                <div class="location-pin">
+                    📍
+                </div>
 
             </div>
 
@@ -101,9 +113,13 @@
     </section>
 
 
+    <!-- ================= FEATURES ================= -->
+
     <section class="features">
 
-        <h2>Everything a Fresher Needs</h2>
+        <h2>
+            Everything a Fresher Needs
+        </h2>
 
         <p class="subtitle">
             One platform to explore and navigate your campus.
@@ -112,54 +128,140 @@
 
         <div class="feature-grid">
 
-            <div class="feature-card">
-                <div class="icon">🔍</div>
-                <h3>Smart Search</h3>
+
+            <!-- ================= SMART SEARCH ================= -->
+
+            <div class="feature-card"
+                 onclick="openSearch()">
+
+                <div class="icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Smart Search
+                </h3>
+
                 <p>
                     Quickly find classrooms, labs,
                     departments and facilities.
                 </p>
+
             </div>
 
 
-            <div class="feature-card">
-                <div class="icon">🧭</div>
-                <h3>Shortest Route</h3>
+            <!-- ================= SHORTEST ROUTE ================= -->
+
+            <div class="feature-card"
+                 onclick="openMap()">
+
+                <div class="icon">
+                    🧭
+                </div>
+
+                <h3>
+                    Shortest Route
+                </h3>
+
                 <p>
                     Get the shortest path from your
                     location to your destination.
                 </p>
+
             </div>
 
 
-            <div class="feature-card">
-                <div class="icon">🏢</div>
-                <h3>Campus Information</h3>
+            <!-- ================= CAMPUS INFORMATION ================= -->
+
+            <div class="feature-card"
+                 onclick="openInformation()">
+
+                <div class="icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Campus Information
+                </h3>
+
                 <p>
                     Explore buildings, departments,
                     rooms and facilities.
                 </p>
+
             </div>
 
 
-            <div class="feature-card">
-                <div class="icon">🚨</div>
-                <h3>Emergency Help</h3>
+            <!-- ================= EMERGENCY HELP ================= -->
+
+            <div class="feature-card"
+                 onclick="openEmergency()">
+
+                <div class="icon">
+                    🚨
+                </div>
+
+                <h3>
+                    Emergency Help
+                </h3>
+
                 <p>
                     Quickly locate medical rooms,
                     security and emergency services.
                 </p>
+
             </div>
+
 
         </div>
 
     </section>
 
 
+    <!-- ================= FOOTER ================= -->
+
     <footer>
-        <b>📍 CampusNav</b>
-        <span>Smart Campus Navigation System for Freshers</span>
+
+        <b>
+            📍 CampusNav
+        </b>
+
+        <span>
+            Smart Campus Navigation System for Freshers
+        </span>
+
     </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // Smart Search
+        function openSearch() {
+            window.location.href = "/search";
+        }
+
+
+        // Shortest Route
+        function openMap() {
+            window.location.href = "/map";
+        }
+
+
+        // Campus Information
+        function openInformation() {
+            window.location.href = "/information";
+        }
+
+
+        // Emergency Help
+        function openEmergency() {
+            window.location.href = "/emergency";
+        }
+
+    </script>
+
 
 </body>
 

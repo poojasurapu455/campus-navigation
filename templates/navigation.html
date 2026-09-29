@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CampusNav | Navigation</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            📍 CampusNav
+        </div>
+
+        <div class="user-info">
+            👤 Fresher
+        </div>
+
+    </nav>
+
+
+    <!-- NAVIGATION PAGE -->
+    <main class="navigation-page">
+
+        <!-- HEADER -->
+        <section class="navigation-heading">
+
+            <span class="navigation-badge">
+                🚶 CAMPUS NAVIGATION
+            </span>
+
+            <h1>Navigation to {{ place }}</h1>
+
+            <p>
+                Follow the directions below to reach your destination.
+            </p>
+
+        </section>
+
+
+        <!-- DESTINATION -->
+        <section class="navigation-destination">
+
+            <div class="navigation-location-icon">
+                📍
+            </div>
+
+            <div>
+                <span class="destination-label">
+                    DESTINATION
+                </span>
+
+                <h2>{{ place }}</h2>
+
+                <p>
+                    Your selected campus destination
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ROUTE -->
+        <section class="route-card">
+
+            <h2>🧭 Route Directions</h2>
+
+            <div class="route-line">
+
+                <div class="route-point start-point">
+                    <span>📍</span>
+                    <div>
+                        <strong>Starting Point</strong>
+                        <small>Current Location</small>
+                    </div>
+                </div>
+
+
+                <div class="direction-step">
+                    <div class="step-number">1</div>
+
+                    <div>
+                        <h3>Enter the main campus</h3>
+                        <p>
+                            Start from your current location
+                            and enter the campus.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="direction-step">
+                    <div class="step-number">2</div>
+
+                    <div>
+                        <h3>Follow the main pathway</h3>
+                        <p>
+                            Continue straight towards the
+                            destination area.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="direction-step">
+                    <div class="step-number">3</div>
+
+                    <div>
+                        <h3>Reach {{ place }}</h3>
+                        <p>
+                            Your destination is ahead.
+                            Follow the campus signs.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="route-point destination-point">
+                    <span>📌</span>
+
+                    <div>
+                        <strong>{{ place }}</strong>
+                        <small>Destination</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIONS -->
+        <section class="navigation-actions">
+
+            <a href="/map" class="navigation-map-btn">
+                🗺️ View Campus Map
+            </a>
+
+            <a href="/search?place={{ place }}"
+               class="navigation-back-btn">
+                ← Back to Search Result
+            </a>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
